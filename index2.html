@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <title>浙江军盛智能装备有限公司</title>
-  <!-- Font Awesome 6 (免费) -->
+  <title>浙江军盛智能装备有限公司 - 无人驾驶观光车</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
     /* ===== 全局重置 & 基础 ===== */
@@ -35,7 +34,7 @@
       padding: 0 24px;
     }
 
-    /* ===== 导航栏（玻璃态 + 科技感） ===== */
+    /* ===== 导航栏 ===== */
     .navbar {
       position: fixed;
       top: 0;
@@ -71,7 +70,16 @@
       font-size: 1.8rem;
       filter: drop-shadow(0 0 8px #00e0ff88);
     }
-
+    .navbar .logo .logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 1px solid rgba(0, 224, 255, 0.20);
+  box-shadow: 0 0 20px rgba(0, 224, 255, 0.15);
+  flex-shrink: 0;
+}
     .nav-links {
       display: flex;
       gap: 36px;
@@ -127,11 +135,14 @@
       filter: drop-shadow(0 0 6px #00e0ff66);
     }
 
-    /* ===== Hero 首屏 — 华丽科技感 ===== */
+    /* ===== Hero 首屏 ===== */
     .hero {
       margin-top: 76px;
       min-height: 100vh;
-      background: radial-gradient(ellipse at 20% 50%, #0a1a3a 0%, #05080f 100%);
+      background:
+        linear-gradient(180deg, rgba(5, 8, 15, 0) 0%, #05080f 100%),
+        radial-gradient(ellipse at 72% 32%, rgba(0, 224, 255, 0.14) 0%, transparent 55%),
+        radial-gradient(ellipse at 20% 50%, #0a1a3a 0%, #05080f 100%);
       position: relative;
       overflow: hidden;
       display: flex;
@@ -139,7 +150,6 @@
       padding: 60px 0 80px;
     }
 
-    /* 动态粒子画布 (背景) */
     #particles-canvas {
       position: absolute;
       top: 0;
@@ -150,7 +160,6 @@
       pointer-events: none;
     }
 
-    /* 霓虹光晕 */
     .hero-glow {
       position: absolute;
       border-radius: 50%;
@@ -195,7 +204,8 @@
       font-size: 0.8rem;
       font-weight: 500;
       letter-spacing: 1.5px;
-      color: #b0f0ff;
+      color: #8ff3ff;
+      text-shadow: 0 0 12px rgba(0, 224, 255, 0.5);
       backdrop-filter: blur(4px);
       margin-bottom: 28px;
       text-transform: uppercase;
@@ -213,15 +223,15 @@
       line-height: 1.1;
       margin-bottom: 20px;
       max-width: 900px;
-      background: linear-gradient(135deg, #ffffff 0%, #b0f0ff 50%, #a855f7 100%);
+      background: linear-gradient(100deg, #dffcff 0%, #4fd8ff 28%, #7c3aed 68%, #ff4ecd 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-shadow: 0 0 60px rgba(0, 224, 255, 0.15);
+      filter: drop-shadow(0 0 22px rgba(0, 224, 255, 0.35));
     }
 
     .hero h1 span {
-      background: linear-gradient(135deg, #00e0ff, #a855f7);
+      background: linear-gradient(120deg, #00e0ff 0%, #7c3aed 55%, #ff4ecd 100%);
       white-space: nowrap;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -230,7 +240,7 @@
 
     .hero p {
       font-size: 1.25rem;
-      color: rgba(255, 255, 255, 0.75);
+      color: #9fd8ff;
       max-width: 720px;
       margin-bottom: 40px;
       line-height: 1.8;
@@ -239,7 +249,8 @@
     }
 
     .hero p strong {
-      color: #ffffff;
+      color: #e6fbff;
+      text-shadow: 0 0 14px rgba(0, 224, 255, 0.45);
     }
 
     .hero-actions {
@@ -305,10 +316,11 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      color: rgba(255, 255, 255, 0.7);
+      color: #a8d8ff;
       font-size: 0.95rem;
       font-weight: 400;
       letter-spacing: 0.3px;
+      text-shadow: 0 0 12px rgba(0, 224, 255, 0.25);
     }
 
     .hero-features .item i {
@@ -318,6 +330,177 @@
       text-align: center;
       filter: drop-shadow(0 0 8px #00e0ff66);
     }
+
+    /* ===== Hero 科幻增强 ===== */
+    .hero-glow.g1 {
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+
+    .hero-glow.g2 {
+      animation: glowPulse 7s ease-in-out infinite;
+    }
+
+    .hero-glow.g3 {
+      width: 460px;
+      height: 460px;
+      background: #0ea5e9;
+      top: 30%;
+      right: 16%;
+      opacity: 0.22;
+      animation: none;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.30; }
+      50% { opacity: 0.55; }
+    }
+
+    .hero-grid-floor {
+      position: absolute;
+      left: 50%;
+      bottom: -2px;
+      width: 240%;
+      height: 52%;
+      transform: translateX(-50%) perspective(720px) rotateX(62deg);
+      transform-origin: 50% 100%;
+      background-image:
+        linear-gradient(rgba(0, 224, 255, 0.14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 224, 255, 0.14) 1px, transparent 1px);
+      background-size: 46px 46px;
+      z-index: 1;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 85%);
+      mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 85%);
+    }
+
+    .hero-radar {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 224, 255, 0.25);
+      z-index: 1;
+      pointer-events: none;
+      animation: radarPulse 4.5s ease-out infinite;
+    }
+
+    .hero-radar.radar-1 {
+      width: 520px;
+      height: 520px;
+      right: -120px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-radar.radar-2 {
+      width: 520px;
+      height: 520px;
+      right: -120px;
+      top: 50%;
+      transform: translateY(-50%);
+      animation-delay: 2.25s;
+    }
+
+    @keyframes radarPulse {
+      0% { opacity: 0.7; transform: translateY(-50%) scale(0.55); }
+      100% { opacity: 0; transform: translateY(-50%) scale(1.3); }
+    }
+
+    .hero-scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.02) 0px,
+        rgba(255, 255, 255, 0.02) 1px,
+        transparent 1px,
+        transparent 4px
+      );
+      z-index: 2;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+
+    /* Hero 左右布局 */
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 0;
+      perspective: 1200px;
+    }
+
+    .vehicle-frame {
+      position: relative;
+      width: min(460px, 100%);
+      border-radius: 28px;
+      padding: 14px;
+      background: linear-gradient(160deg, rgba(0, 224, 255, 0.10), rgba(168, 85, 247, 0.06));
+      border: 1px solid rgba(0, 224, 255, 0.22);
+      box-shadow: 0 0 90px rgba(0, 224, 255, 0.18), 0 40px 90px rgba(0, 0, 0, 0.6);
+      animation: heroFloat 6s ease-in-out infinite;
+    }
+
+    .vehicle-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0) rotateY(-4deg); }
+      50% { transform: translateY(-16px) rotateY(-4deg); }
+    }
+
+    .frame-corner {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      border: 2px solid #00e0ff;
+      filter: drop-shadow(0 0 6px #00e0ffaa);
+      z-index: 2;
+    }
+
+    .frame-corner.tl { top: -1px; left: -1px; border-right: none; border-bottom: none; border-top-left-radius: 12px; }
+    .frame-corner.tr { top: -1px; right: -1px; border-left: none; border-bottom: none; border-top-right-radius: 12px; }
+    .frame-corner.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; border-bottom-left-radius: 12px; }
+    .frame-corner.br { bottom: -1px; right: -1px; border-left: none; border-top: none; border-bottom-right-radius: 12px; }
+
+    .hud-tag {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #b0f0ff;
+      background: rgba(8, 14, 30, 0.72);
+      border: 1px solid rgba(0, 224, 255, 0.30);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 22px rgba(0, 224, 255, 0.14);
+      white-space: nowrap;
+      z-index: 3;
+    }
+
+    .hud-tag i {
+      color: #00e0ff;
+    }
+
+    .hud-tag.tag-a { top: 4%; left: -34px; }
+    .hud-tag.tag-b { bottom: 16%; right: -30px; }
+    .hud-tag.tag-c { bottom: -24px; left: 16%; }
 
     /* ===== 通用标题 ===== */
     .section-title {
@@ -355,7 +538,7 @@
       box-shadow: 0 0 24px #00e0ff66;
     }
 
-    /* ===== 核心团队 (玻璃态卡片) ===== */
+    /* ===== 核心团队 ===== */
     .team {
       padding: 80px 0 70px;
       background: #0b0e1a;
@@ -449,7 +632,7 @@
       font-size: 0.9rem;
     }
 
-    /* ===== 关于我们（左侧图片 + 右侧介绍） ===== */
+    /* ===== 关于我们 ===== */
     .about {
       padding: 80px 0 70px;
       background: #0f1322;
@@ -463,7 +646,6 @@
       align-items: start;
     }
 
-    /* 左侧：教授卡片 */
     .about-left {
       position: sticky;
       top: 100px;
@@ -540,7 +722,6 @@
       color: #94a3c8;
     }
 
-    /* 右侧：详细介绍 */
     .about-right {
       display: flex;
       flex-direction: column;
@@ -592,6 +773,258 @@
       background: #00e0ff;
       border-radius: 50%;
       opacity: 0.5;
+    }
+
+    /* ===== 无人观光车专题 ===== */
+    .vehicle-section {
+      padding: 80px 0 70px;
+      background: #0f1322;
+      border-bottom: 1px solid rgba(0, 224, 255, 0.06);
+    }
+
+    .vehicle-hero-banner {
+      background: radial-gradient(ellipse at 60% 40%, #1a1040, #060a14);
+      border-radius: 32px;
+      padding: 48px 56px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      border: 1px solid rgba(168, 85, 247, 0.20);
+      box-shadow: 0 0 80px rgba(168, 85, 247, 0.06);
+      margin-bottom: 48px;
+    }
+
+    .vehicle-hero-banner .banner-text h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #f0f4ff;
+      margin-bottom: 10px;
+    }
+
+    .vehicle-hero-banner .banner-text h3 i {
+      color: #a78bfa;
+      margin-right: 10px;
+    }
+
+    .vehicle-hero-banner .banner-text .highlight-tag {
+      display: inline-block;
+      background: rgba(168, 85, 247, 0.12);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      padding: 6px 20px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      color: #c4b5fd;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .vehicle-hero-banner .banner-text p {
+      color: #b0c8e8;
+      max-width: 480px;
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-top: 14px;
+    }
+
+    .vehicle-hero-banner .banner-img {
+      width: 240px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 20px;
+      background: #1a1f32;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      flex-shrink: 0;
+    }
+
+    .vehicle-features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .vehicle-feature-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(8px);
+      border-radius: 24px;
+      padding: 28px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .vehicle-feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(168, 85, 247, 0.25);
+      box-shadow: 0 16px 40px rgba(168, 85, 247, 0.04);
+    }
+
+    .vehicle-feature-card .vf-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(168, 85, 247, 0.12);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a78bfa;
+      font-size: 1.5rem;
+      border: 1px solid rgba(168, 85, 247, 0.15);
+    }
+
+    .vehicle-feature-card h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #f0f4ff;
+    }
+
+    .vehicle-feature-card p {
+      color: #94a3c8;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .vehicle-specs-table {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    .vehicle-spec {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      padding: 20px 18px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .vehicle-spec .spec-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #a78bfa;
+      letter-spacing: -0.5px;
+    }
+
+    .vehicle-spec .spec-label {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    .vehicle-gallery {
+      margin-bottom: 48px;
+    }
+
+    .gallery-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #f0f4ff;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .gallery-title i {
+      color: #a78bfa;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(168, 85, 247, 0.25);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-label {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.85rem;
+      color: #94a3c8;
+      background: rgba(255, 255, 255, 0.03);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .vehicle-scenarios {
+      margin-top: 48px;
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .scenario-card {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .scenario-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(168, 85, 247, 0.20);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+    }
+
+    .scenario-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .scenario-info {
+      padding: 18px 20px 22px;
+    }
+
+    .scenario-info h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #f0f4ff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .scenario-info h4 i {
+      color: #a78bfa;
+      font-size: 0.95rem;
+    }
+
+    .scenario-info p {
+      color: #94a3c8;
+      font-size: 0.88rem;
+      line-height: 1.7;
     }
 
     /* ===== 核心产品 ===== */
@@ -674,7 +1107,23 @@
       background: #1a1f32;
     }
 
-    /* 无人驾驶观光车 — 突出展示 (霓虹边框) */
+    .product-card.product-featured {
+      border-color: rgba(0, 224, 255, 0.28);
+      box-shadow: 0 0 40px rgba(0, 224, 255, 0.08);
+    }
+
+    .product-card.product-featured .icon-box {
+      background: rgba(168, 85, 247, 0.15);
+      border-color: rgba(168, 85, 247, 0.25);
+      color: #a78bfa;
+    }
+
+    .product-card.product-featured .tag {
+      background: linear-gradient(135deg, rgba(0, 200, 255, 0.15), rgba(168, 85, 247, 0.15));
+      border-color: rgba(168, 85, 247, 0.20);
+      color: #c4b5fd;
+    }
+
     .product-highlight {
       margin-top: 40px;
       background: radial-gradient(ellipse at 70% 30%, #0f1a3a, #060a14);
@@ -733,74 +1182,6 @@
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    /* ===== 客户案例 ===== */
-    .cases {
-      padding: 80px 0 70px;
-      background: #0f1322;
-      border-bottom: 1px solid rgba(0, 224, 255, 0.06);
-    }
-
-    .case-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .case-item {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(8px);
-      border-radius: 28px;
-      padding: 28px 24px 32px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: border-color 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .case-item:hover {
-      border-color: rgba(0, 224, 255, 0.20);
-      box-shadow: 0 12px 40px rgba(0, 224, 255, 0.04);
-    }
-
-    .case-item .company {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #f0f4ff;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .case-item .company i {
-      color: #00e0ff;
-      font-size: 1.4rem;
-    }
-
-    .case-item .desc {
-      margin: 12px 0 16px;
-      color: #b0bcd8;
-      font-size: 0.95rem;
-    }
-
-    .case-item .solution {
-      background: rgba(0, 224, 255, 0.08);
-      padding: 8px 18px;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #7cbbff;
-      display: inline-block;
-      margin-bottom: 12px;
-      border: 1px solid rgba(0, 224, 255, 0.06);
-    }
-
-    .case-item .case-img {
-      width: 100%;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 16px;
-      background: #1a1f32;
-    }
-
     /* ===== Footer ===== */
     .footer {
       background: #05080f;
@@ -815,6 +1196,16 @@
     @media (max-width: 1024px) {
       .hero h1 {
         font-size: 3.2rem;
+      }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-visual {
+        padding: 10px 0;
+      }
+      .vehicle-hero-banner {
+        padding: 36px 32px;
       }
     }
 
@@ -840,6 +1231,15 @@
       .hero h1 {
         font-size: 2.8rem;
       }
+      .vehicle-hero-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px 24px;
+      }
+      .vehicle-hero-banner .banner-img {
+        width: 100%;
+        height: 180px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -856,36 +1256,41 @@
         gap: 20px;
         border-bottom: 1px solid rgba(0, 224, 255, 0.08);
       }
-
       .nav-links.open {
         display: flex;
       }
-
       .menu-toggle {
         display: block;
       }
-
       .hero h1 {
         font-size: 2.2rem;
       }
-
       .hero {
         padding: 50px 0 60px;
         min-height: auto;
       }
-
       .hero-features {
         gap: 16px;
         flex-direction: column;
         align-items: flex-start;
       }
-
+      .hud-tag {
+        display: none;
+      }
+      .hero-grid-floor {
+        height: 34%;
+      }
       .section-title h2 {
         font-size: 2rem;
       }
-
       .product-grid {
         grid-template-columns: 1fr 1fr;
+      }
+      .vehicle-features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -894,13 +1299,16 @@
         grid-template-columns: 1fr;
         max-width: 400px;
       }
+      .vehicle-features-grid {
+        grid-template-columns: 1fr;
+      }
+      .vehicle-specs-table {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 500px) {
       .product-grid {
-        grid-template-columns: 1fr;
-      }
-      .case-grid {
         grid-template-columns: 1fr;
       }
       .hero h1 {
@@ -920,41 +1328,66 @@
 
   <!-- ===== 导航栏 ===== -->
   <nav class="navbar">
-    <div class="logo"><i class="fas fa-microchip"></i><span>军盛智能</span></div>
+    <div class="logo">
+  <img src="assets/images/logo-icon.png" alt="邺君智能" class="logo-icon" />
+  <span>邺君智能</span>
+</div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero" class="active">首页</a></li>
       <li><a href="#team">团队</a></li>
       <li><a href="#about">关于</a></li>
+      <li><a href="#vehicle">无人观光车</a></li>
       <li><a href="#products">产品</a></li>
-      <li><a href="#cases">案例</a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
   </nav>
 
-  <!-- ===== Hero 首屏（华丽科技感） ===== -->
+  <!-- ===== Hero 首屏 ===== -->
   <section class="hero" id="hero">
-    <!-- 粒子背景 -->
     <canvas id="particles-canvas"></canvas>
-    <!-- 霓虹光晕 -->
     <div class="hero-glow g1"></div>
     <div class="hero-glow g2"></div>
+    <div class="hero-glow g3"></div>
+    <div class="hero-grid-floor"></div>
+    <div class="hero-radar radar-1"></div>
+    <div class="hero-radar radar-2"></div>
+    <div class="hero-scanlines"></div>
 
     <div class="container">
-      <div class="hero-badge"><i class="fas fa-robot"></i> 智能仓储 · 激光产线 · 无人驾驶</div>
-      <h1>节能 · 环保 · 高效 · 稳定 <span>智能一体化</span></h1>
-      <p>
-        <strong>浙江军盛智能装备有限公司</strong> ｜ <strong>宁波邺君智能科技有限公司</strong>
-        <br />
-        专注于智能仓储物流装备与激光加工产线，为制造、电商、冷链、物流等行业提供全流程定制化解决方案。
-      </p>
-      <div class="hero-actions">
-        <a href="#products" class="btn-primary"><i class="fas fa-th-large"></i> 核心产品</a>
-        <a href="#cases" class="btn-outline"><i class="fas fa-briefcase"></i> 合作案例</a>
-      </div>
-      <div class="hero-features">
-        <div class="item"><i class="fas fa-boxes"></i> 智能仓储物流</div>
-        <div class="item"><i class="fas fa-bolt"></i> 激光焊接 / 切割 / 清洗</div>
-        <div class="item"><i class="fas fa-car"></i> 无人驾驶观光车</div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge"><i class="fas fa-car"></i> L4级自动驾驶 · 无人观光车 · 智慧出行</div>
+          <h1>未来出行 <span>无人驾驶观光车</span></h1>
+          <p>
+            <strong>浙江军盛智能装备有限公司</strong> ｜ <strong>宁波邺君智能科技有限公司</strong>
+            <br />
+            专注于 L4 级无人驾驶观光车研发与制造，为景区、园区、机场、校园等场景提供安全、舒适、绿色的一站式智慧出行解决方案。
+          </p>
+          <div class="hero-actions">
+            <a href="#vehicle" class="btn-primary"><i class="fas fa-car"></i> 了解观光车</a>
+            <a href="#products" class="btn-outline"><i class="fas fa-th-large"></i> 全部产品</a>
+          </div>
+          <div class="hero-features">
+            <div class="item"><i class="fas fa-route"></i> L4级自动驾驶</div>
+            <div class="item"><i class="fas fa-leaf"></i> 绿色新能源动力</div>
+            <div class="item"><i class="fas fa-shield-alt"></i> 多重安全保障</div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="vehicle-frame">
+            <span class="frame-corner tl"></span>
+            <span class="frame-corner tr"></span>
+            <span class="frame-corner bl"></span>
+            <span class="frame-corner br"></span>
+            <img src="assets/images/product-vehicle.jpg" alt="无人驾驶观光车"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; align-items:center; justify-content:center; aspect-ratio:16/9; background:linear-gradient(135deg,#0a1a3a,#1a1040); border-radius:20px; color:#64748b; font-size:0.9rem; border:1px solid rgba(255,255,255,0.06);">🚗 无人驾驶观光车</div>
+          </div>
+          <span class="hud-tag tag-a"><i class="fas fa-satellite-dish"></i> LiDAR · 360° 感知</span>
+          <span class="hud-tag tag-b"><i class="fas fa-microchip"></i> L4 全栈自研</span>
+          <span class="hud-tag tag-c"><i class="fas fa-bolt"></i> 新能源驱动</span>
+        </div>
       </div>
     </div>
   </section>
@@ -970,8 +1403,7 @@
       <div class="team-grid">
         <div class="team-card">
           <div class="team-avatar">
-            <img src="assets/images/founder-renyejun.jpg" alt="任业军"
-                 onerror="this.style.display='none'; this.parentElement.textContent='任'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.fontSize='3rem'; this.parentElement.style.fontWeight='700'; this.parentElement.style.color='white';">
+            <img src="assets/images/founder-renyejun.jpg" alt="任业军" onerror="this.style.display='none'; this.parentElement.textContent='任'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.fontSize='3rem'; this.parentElement.style.fontWeight='700'; this.parentElement.style.color='white';">
           </div>
           <h3>任业军</h3>
           <div class="team-title">创始人 · CEO</div>
@@ -983,8 +1415,7 @@
         </div>
         <div class="team-card">
           <div class="team-avatar">
-            <img src="assets/images/professor-zeng.jpg" alt="曾丽敏"
-                 onerror="this.style.display='none'; this.parentElement.textContent='曾'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.fontSize='3rem'; this.parentElement.style.fontWeight='700'; this.parentElement.style.color='white';">
+            <img src="assets/images/professor-zeng.jpg" alt="曾丽敏" onerror="this.style.display='none'; this.parentElement.textContent='曾'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.fontSize='3rem'; this.parentElement.style.fontWeight='700'; this.parentElement.style.color='white';">
           </div>
           <h3>曾丽敏</h3>
           <div class="team-title">第二大股东 · 副教授</div>
@@ -998,7 +1429,7 @@
     </div>
   </section>
 
-  <!-- ===== 关于我们（左侧图片 + 右侧介绍） ===== -->
+  <!-- ===== 关于我们 ===== -->
   <section class="about" id="about">
     <div class="container">
       <div class="section-title">
@@ -1007,12 +1438,10 @@
         <p class="sub">以曾教授为核心的研发团队，驱动智能装备创新</p>
       </div>
       <div class="about-grid">
-        <!-- 左侧：教授头像 + 基本信息 -->
         <div class="about-left">
           <div class="profile-card">
             <div class="profile-avatar">
-              <img src="assets/images/professor-zeng.jpg" alt="曾丽敏教授"
-                   onerror="this.style.display='none'; this.parentElement.textContent='曾'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.fontSize='3.2rem'; this.parentElement.style.fontWeight='700'; this.parentElement.style.color='white';">
+              <img src="assets/images/professor-zeng.jpg" alt="曾丽敏教授" onerror="this.style.display='none'; this.parentElement.textContent='曾'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.fontSize='3.2rem'; this.parentElement.style.fontWeight='700'; this.parentElement.style.color='white';">
             </div>
             <h3>曾丽敏</h3>
             <p class="profile-title">副教授 · 公司股东</p>
@@ -1024,10 +1453,7 @@
             </div>
           </div>
         </div>
-
-        <!-- 右侧：详细介绍 -->
         <div class="about-right">
-          <!-- 基本信息 -->
           <div class="info-block">
             <div class="info-label"><i class="fas fa-id-card"></i> 基本信息</div>
             <ul class="info-list">
@@ -1039,8 +1465,6 @@
               <li>2022年加入浙江大学软件学院（宁波）</li>
             </ul>
           </div>
-
-          <!-- 研究课题 -->
           <div class="info-block">
             <div class="info-label"><i class="fas fa-microscope"></i> 研究课题</div>
             <ul class="info-list">
@@ -1048,8 +1472,6 @@
               <li>曾担任高级研究员、课题组负责人、欧盟IT类项目专家评审和香港科技局外部项目评审专家</li>
             </ul>
           </div>
-
-          <!-- 学术成果 -->
           <div class="info-block">
             <div class="info-label"><i class="fas fa-file-alt"></i> 学术成果</div>
             <ul class="info-list">
@@ -1060,8 +1482,6 @@
               <li>产学研项目已应用于阿里巴巴、华为等企业</li>
             </ul>
           </div>
-
-          <!-- 其他 -->
           <div class="info-block">
             <div class="info-label"><i class="fas fa-pencil-alt"></i> 学术服务</div>
             <ul class="info-list">
@@ -1073,15 +1493,163 @@
     </div>
   </section>
 
+  <!-- ===== 无人驾驶观光车专题 ===== -->
+  <section class="vehicle-section" id="vehicle">
+    <div class="container">
+      <div class="section-title">
+        <h2><i class="fas fa-car"></i> 无人驾驶观光车</h2>
+        <div class="line"></div>
+        <p class="sub">L4 级自动驾驶 · 新能源动力 · 多场景适配 · 安全可靠</p>
+      </div>
+
+      <div class="vehicle-hero-banner">
+        <div class="banner-text">
+          <span class="highlight-tag"><i class="fas fa-microchip"></i> 全栈自研 · L4 级自动驾驶</span>
+          <h3><i class="fas fa-flag-checkered"></i> 重新定义园区智慧出行</h3>
+          <p>深度融合激光雷达、高精度地图、多传感器融合感知与 AI 决策规划，实现封闭/半封闭场景下的完全无人驾驶，为景区、园区、机场、校园等场所提供安全、高效、绿色的出行体验。</p>
+        </div>
+        <img src="assets/images/product-vehicle.jpg" alt="无人驾驶观光车展示" class="banner-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div style="display:none; align-items:center; justify-content:center; width:240px; height:160px; background:#1a1f32; border-radius:20px; color:#64748b; font-size:0.8rem; border:1px solid rgba(255,255,255,0.04);">🚗 观光车展示图</div>
+      </div>
+
+      <div class="vehicle-gallery">
+        <h3 class="gallery-title"><i class="fas fa-images"></i> 车辆实拍展示</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="assets/images/vehicle-front.jpg" alt="无人观光车正面" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; align-items:center; justify-content:center; height:220px; background:#1a1f32; border-radius:18px; color:#64748b; font-size:0.8rem; border:1px solid rgba(255,255,255,0.04);">🚗 正面视图</div>
+            <span class="gallery-label">流线型前脸设计</span>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/vehicle-side.jpg" alt="无人观光车侧面" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; align-items:center; justify-content:center; height:220px; background:#1a1f32; border-radius:18px; color:#64748b; font-size:0.8rem; border:1px solid rgba(255,255,255,0.04);">🚗 侧面视图</div>
+            <span class="gallery-label">优雅车身线条</span>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/vehicle-interior.jpg" alt="无人观光车内饰" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; align-items:center; justify-content:center; height:220px; background:#1a1f32; border-radius:18px; color:#64748b; font-size:0.8rem; border:1px solid rgba(255,255,255,0.04);">🛋️ 内饰视图</div>
+            <span class="gallery-label">舒适宽敞内饰</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="vehicle-features-grid">
+        <div class="vehicle-feature-card">
+          <div class="vf-icon"><i class="fas fa-brain"></i></div>
+          <h4>L4 级自动驾驶</h4>
+          <p>搭载自研 AI 决策系统，融合激光雷达、毫米波雷达与视觉感知，实现复杂路况下的全自主导航与避障。</p>
+        </div>
+        <div class="vehicle-feature-card">
+          <div class="vf-icon"><i class="fas fa-leaf"></i></div>
+          <h4>新能源动力系统</h4>
+          <p>纯电驱动，零排放、低噪音，续航里程长，支持快充与换电模式，满足全天候运营需求。</p>
+        </div>
+        <div class="vehicle-feature-card">
+          <div class="vf-icon"><i class="fas fa-shield-halved"></i></div>
+          <h4>多重安全保障</h4>
+          <p>360° 冗余感知 + 紧急制动 + 远程监控 + 人工接管，符合国家自动驾驶安全标准，确保万无一失。</p>
+        </div>
+        <div class="vehicle-feature-card">
+          <div class="vf-icon"><i class="fas fa-cloud"></i></div>
+          <h4>云端智慧调度</h4>
+          <p>支持多车协同调度、实时路径规划、远程 OTA 升级，搭配管理平台实现车队全生命周期数字化运营。</p>
+        </div>
+        <div class="vehicle-feature-card">
+          <div class="vf-icon"><i class="fas fa-paint-brush"></i></div>
+          <h4>个性化定制</h4>
+          <p>支持外观涂装、座位布局、内饰风格等个性化定制，满足不同场景的品牌形象与功能需求。</p>
+        </div>
+        <div class="vehicle-feature-card">
+          <div class="vf-icon"><i class="fas fa-map-location-dot"></i></div>
+          <h4>多场景覆盖</h4>
+          <p>适用于旅游景区、产业园区、机场港口、大学校园、大型社区、高尔夫球场等封闭/半封闭场景。</p>
+        </div>
+      </div>
+
+      <div class="vehicle-scenarios">
+        <h3 class="gallery-title"><i class="fas fa-map-pin"></i> 典型应用场景</h3>
+        <div class="scenario-grid">
+          <div class="scenario-card">
+            <img src="assets/images/scene-park.jpg" alt="景区应用" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; align-items:center; justify-content:center; height:160px; background:#1a1f32; border-radius:16px; color:#64748b; font-size:0.8rem; border:1px solid rgba(255,255,255,0.04);">🏞️ 景区场景</div>
+            <div class="scenario-info">
+              <h4><i class="fas fa-tree"></i> 旅游景区</h4>
+              <p>大型景区内游客接驳，固定路线自动巡航，缓解人力调度压力，提升游客体验。</p>
+            </div>
+          </div>
+          <div class="scenario-card">
+            <img src="assets/images/scene-campus.jpg" alt="校园应用" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; align-items:center; justify-content:center; height:160px; background:#1a1f32; border-radius:16px; color:#64748b; font-size:0.8rem; border:1px solid rgba(255,255,255,0.04);">🏫 校园场景</div>
+            <div class="scenario-info">
+              <h4><i class="fas fa-graduation-cap"></i> 大学校园</h4>
+              <p>智慧校园无人摆渡，串联教学楼、宿舍、食堂，打造未来智慧校园标杆。</p>
+            </div>
+          </div>
+          <div class="scenario-card">
+            <img src="assets/images/scene-airport.jpg" alt="机场应用" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; align-items:center; justify-content:center; height:160px; background:#1a1f32; border-radius:16px; color:#64748b; font-size:0.8rem; border:1px solid rgba(255,255,255,0.04);">✈️ 机场场景</div>
+            <div class="scenario-info">
+              <h4><i class="fas fa-plane"></i> 机场港口</h4>
+              <p>航站楼间旅客运输、工作人员通勤，高效衔接，降低机场内部交通运营成本。</p>
+            </div>
+          </div>
+          <div class="scenario-card">
+            <img src="assets/images/scene-industrial.jpg" alt="园区应用" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; align-items:center; justify-content:center; height:160px; background:#1a1f32; border-radius:16px; color:#64748b; font-size:0.8rem; border:1px solid rgba(255,255,255,0.04);">🏭 园区场景</div>
+            <div class="scenario-info">
+              <h4><i class="fas fa-building"></i> 产业园区</h4>
+              <p>大型园区内循环接驳，按需叫车、智能调度，提升园区智慧化管理水平。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vehicle-specs-table">
+        <div class="vehicle-spec">
+          <div class="spec-value">L4</div>
+          <div class="spec-label">自动驾驶等级</div>
+        </div>
+        <div class="vehicle-spec">
+          <div class="spec-value">8-14</div>
+          <div class="spec-label">座位数（座）</div>
+        </div>
+        <div class="vehicle-spec">
+          <div class="spec-value">≤25</div>
+          <div class="spec-label">最高时速（km/h）</div>
+        </div>
+        <div class="vehicle-spec">
+          <div class="spec-value">100+</div>
+          <div class="spec-label">续航里程（km）</div>
+        </div>
+        <div class="vehicle-spec">
+          <div class="spec-value">纯电</div>
+          <div class="spec-label">动力类型</div>
+        </div>
+        <div class="vehicle-spec">
+          <div class="spec-value">≤4h</div>
+          <div class="spec-label">快充时间</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== 核心产品 ===== -->
   <section class="products" id="products">
     <div class="container">
       <div class="section-title">
         <h2><i class="fas fa-cubes"></i> 核心产品</h2>
         <div class="line"></div>
-        <p class="sub">智能仓储 · 激光装备 · 无人驾驶 · 一站式产线</p>
+        <p class="sub">无人驾驶观光车 · 智能仓储 · 一站式产线</p>
       </div>
       <div class="product-grid">
+        <div class="product-card product-featured">
+          <div class="icon-box"><i class="fas fa-car"></i></div>
+          <h3>⭐ 无人驾驶观光车</h3>
+          <p>搭载 L4 级自动驾驶系统，适用于景区、园区、机场、校园等场景，安全舒适，绿色出行。</p>
+          <img src="assets/images/product-vehicle.jpg" alt="无人驾驶观光车" class="product-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div style="display:none; align-items:center; justify-content:center; height:140px; background:#1a1f32; border-radius:16px; color:#64748b; font-size:0.8rem; margin:16px 0 10px; border:1px solid rgba(255,255,255,0.04);">🚗 观光车示意图</div>
+          <span class="tag">核心产品 · 自主研发</span>
+        </div>
         <div class="product-card">
           <div class="icon-box"><i class="fas fa-warehouse"></i></div>
           <h3>智能仓储物流</h3>
@@ -1089,14 +1657,6 @@
           <img src="assets/images/product-storage.jpg" alt="智能仓储物流设备" class="product-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div style="display:none; align-items:center; justify-content:center; height:140px; background:#1a1f32; border-radius:16px; color:#64748b; font-size:0.8rem; margin:16px 0 10px; border:1px solid rgba(255,255,255,0.04);">📷 仓储设备示意图</div>
           <span class="tag">堆高车 · 无人牵引车</span>
-        </div>
-        <div class="product-card">
-          <div class="icon-box"><i class="fas fa-bolt"></i></div>
-          <h3>激光加工产线</h3>
-          <p>激光焊接、切割、清洗、打标标准设备，定制化工装夹具，全流程智能产线。</p>
-          <img src="assets/images/product-laser.jpg" alt="激光加工设备" class="product-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div style="display:none; align-items:center; justify-content:center; height:140px; background:#1a1f32; border-radius:16px; color:#64748b; font-size:0.8rem; margin:16px 0 10px; border:1px solid rgba(255,255,255,0.04);">📷 激光设备示意图</div>
-          <span class="tag">交钥匙整体解决方案</span>
         </div>
         <div class="product-card">
           <div class="icon-box"><i class="fas fa-industry"></i></div>
@@ -1110,59 +1670,23 @@
 
       <div class="product-highlight">
         <div class="info">
-          <h3><i class="fas fa-car"></i>无人驾驶观光车</h3>
-          <p>搭载 L4 级自动驾驶系统，适用于景区、园区、机场等场景，安全舒适，绿色出行。</p>
+          <h3><i class="fas fa-robot"></i> 智能仓储物流</h3>
+          <p>从室内到室外、从常温到严寒，提供仓储物流一站式交钥匙方案。</p>
         </div>
-        <img src="assets/images/product-vehicle.jpg" alt="无人驾驶观光车" class="highlight-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div style="display:none; align-items:center; justify-content:center; width:160px; height:100px; background:#1a1f32; border-radius:16px; color:#64748b; font-size:0.7rem; border:1px solid rgba(255,255,255,0.04);">🚗 观光车图</div>
-        <div class="badge"><i class="fas fa-star"></i> 核心亮点 · 自主研发</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 合作案例 ===== -->
-  <section class="cases" id="cases">
-    <div class="container">
-      <div class="section-title">
-        <h2><i class="fas fa-briefcase"></i> 合作案例</h2>
-        <div class="line"></div>
-        <p class="sub">服务中粮、药企、好想来等知名企业，从室内到室外，从常温到严寒</p>
-      </div>
-      <div class="case-grid">
-        <div class="case-item">
-          <div class="company"><i class="fas fa-industry"></i> 中粮可口可乐</div>
-          <div class="solution"><i class="fas fa-check-circle"></i> 平衡重式 FMR · AGV 智能搬运</div>
-          <div class="desc">采用智能AGV解决方案，高效解决酒水饮料行业搬运难题，提升仓储周转效率。</div>
-          <img src="assets/images/case-coca.jpg" alt="中粮可口可乐项目现场" class="case-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div style="display:none; align-items:center; justify-content:center; width:100%; height:130px; background:#1a1f32; border-radius:16px; color:#64748b; font-size:0.8rem; border:1px solid rgba(255,255,255,0.04);">📷 中粮项目现场</div>
-        </div>
-        <div class="case-item">
-          <div class="company"><i class="fas fa-pills"></i> 国内药企 TOP3 子公司</div>
-          <div class="solution"><i class="fas fa-snowflake"></i> 室外/冷库版 FMR · 窄巷道方案</div>
-          <div class="desc">济南室内外一体化智能搬运项目，从常温到严寒，拓宽医药仓储效率边界。</div>
-          <img src="assets/images/case-pharma.jpg" alt="药企智能搬运项目" class="case-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div style="display:none; align-items:center; justify-content:center; width:100%; height:130px; background:#1a1f32; border-radius:16px; color:#64748b; font-size:0.8rem; border:1px solid rgba(255,255,255,0.04);">📷 药企项目现场</div>
-        </div>
-        <div class="case-item">
-          <div class="company"><i class="fas fa-truck"></i> 江苏泰兴好想来物流中心</div>
-          <div class="solution"><i class="fas fa-arrows-alt"></i> 仓储搬运车 · 堆高车</div>
-          <div class="desc">物流配送中心总部，选用仓储搬运车和堆高车优化内部物流输送流程。</div>
-          <img src="assets/images/case-haoxianglai.jpg" alt="好想来物流项目" class="case-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div style="display:none; align-items:center; justify-content:center; width:100%; height:130px; background:#1a1f32; border-radius:16px; color:#64748b; font-size:0.8rem; border:1px solid rgba(255,255,255,0.04);">📷 好想来项目现场</div>
-        </div>
+        <img src="assets/images/product-storage.jpg" alt="智能仓储设备" class="highlight-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div style="display:none; align-items:center; justify-content:center; width:160px; height:100px; background:#1a1f32; border-radius:16px; color:#64748b; font-size:0.7rem; border:1px solid rgba(255,255,255,0.04);">📦 仓储 &amp; 激光</div>
+        <div class="badge"><i class="fas fa-star"></i> 成熟方案 · 广泛落地</div>
       </div>
     </div>
   </section>
 
   <!-- ===== Footer ===== -->
   <div class="footer">
-    <div class="container">&copy; 2026 浙江军盛智能装备有限公司 · 技术支持：宁波邺君智能</div>
+    <div class="container">&copy; 2026 浙江军盛智能装备有限公司  · 技术支持：宁波邺君智能</div>
   </div>
 
-  <!-- ===== JavaScript ===== -->
   <script>
     (function() {
-      // ---- 粒子背景 (Canvas) ----
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
       let width, height;
@@ -1248,7 +1772,6 @@
 
       setTimeout(setupParticles, 100);
 
-      // ---- 导航交互 ----
       const menuToggle = document.getElementById('menuToggle');
       const navLinks = document.getElementById('navLinks');
       const navItems = document.querySelectorAll('.nav-links a');
@@ -1272,8 +1795,8 @@
         });
       });
 
-      // 滚动高亮
       const sections = document.querySelectorAll('section[id]');
+
       function highlightNav() {
         let current = '';
         sections.forEach(section => {
